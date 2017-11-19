@@ -6,6 +6,7 @@
       <li v-for="item in items" v-bind:class="{finished: item.
       isFinished}" v-on:click="toggleFinish(item)">
         {{item.label}}
+        <button class="destroy" @click="deleteTodo(item)" ></button>
       </li>
     </ul>
   </div>
@@ -41,6 +42,10 @@ export default {
         isFinished: false
       })
       this.newItem=''
+    },
+    deleteTodo:function(todo){
+      var index = this.items.indexOf(todo);
+      this.items.splice(index,1);
     }
   }
 }
