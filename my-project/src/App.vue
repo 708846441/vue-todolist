@@ -5,21 +5,23 @@
         <h2>任务计划列表</h2>
       </div>
     </div>
-    <h3 class="big-title">添加任务</h3>
-    <input v-model="newItem" placeholder="" class="task-input" type="text" v-on:keyup.enter="addTodo" />
-    <!--渲染数据-->
-    <h3 class="big-title">任务列表</h3>
-    <div class="tasks">
-      <ul class="todo-list">
-        <li class="todo " :class="{completed:item.isChecked,editing:item===edtorTodos}" v-for="item in items">
-          <div class="view">
-            <input class="toggle" type="checkbox" v-model="item.isChecked" />
-            <label @dblclick="edtorTodo(item)">{{item.title}}</label>
-            <button class="destroy" @click="deleteTodo(item)"></button>
-          </div>
-          <input  class="edit" type="text" v-model="item.title" @blur="edtorTodoed(item)" @keyup.enter="edtorTodoed(item)" @keyup.esc="cancelTodo(item)" />
-        </li>
-      </ul>
+    <div class="main">
+      <h3 class="big-title">添加任务</h3>
+      <input v-model="newItem" placeholder="" class="task-input" type="text" v-on:keyup.enter="addTodo" />
+      <!--渲染数据-->
+      <h3 class="big-title">任务列表</h3>
+      <div class="tasks">
+        <ul class="todo-list">
+          <li class="todo " :class="{completed:item.isChecked,editing:item===edtorTodos}" v-for="item in items">
+            <div class="view">
+              <input class="toggle" type="checkbox" v-model="item.isChecked" />
+              <label @dblclick="edtorTodo(item)">{{item.title}}</label>
+              <button class="destroy" @click="deleteTodo(item)"></button>
+            </div>
+            <input  class="edit" type="text" v-model="item.title" @blur="edtorTodoed(item)" @keyup.enter="edtorTodoed(item)" @keyup.esc="cancelTodo(item)" />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -213,7 +215,6 @@
     border: none;
     /* Mobile Safari */
     -webkit-appearance: none;
-    appearance: none;
   }
   .toggle {
     text-align: center;
@@ -227,7 +228,6 @@
     border: none;
     /* Mobile Safari */
     -webkit-appearance: none;
-    appearance: none;
   }
   .toggle:after {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="40" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
@@ -249,15 +249,15 @@
     text-decoration: line-through;
   }
   /*.tip-toggle {
-          padding-left: 0;
-          position: relative;
-      }
-      .tip-toggle .toggle {
-          top: -2px;
-      }
-      .tip-toggle span {
-          margin-left: 45px;
-      }*/
+                      padding-left: 0;
+                      position: relative;
+                  }
+                  .tip-toggle .toggle {
+                      top: -2px;
+                  }
+                  .tip-toggle span {
+                      margin-left: 45px;
+                  }*/
   .todo-list li .destroy {
     display: none;
     position: absolute;
@@ -291,7 +291,7 @@
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    text-align: left;
     color: #2c3e50;
     margin-top: 60px;
   }
